@@ -1,3 +1,6 @@
+from stats import words_count, symbols_count
+
+
 def get_book_text(path):
     # Funkcja otwierająca plik ze ścieżki i zwracająca tekst jako string.
 
@@ -7,20 +10,11 @@ def get_book_text(path):
     return text
 
 
-def words_count(book_text):
-    # Funkcja licząca ilość słów w książce.
-
-    words_count = book_text.split()
-    num_words = len(words_count)
-
-    return f"Found {num_words} total words"
-
-
 def main():
 
     book_text = get_book_text("/home/mateusz/workspace/github.com/mateusz/bookbot/books/frankenstein.txt")
     
-    print(words_count(book_text))
+    print(symbols_count(book_text))
 
 
 main()
