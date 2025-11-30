@@ -8,6 +8,7 @@ def words_count(book_text):
 
 
 def symbols_count(book_text):
+    # Funkcja tworząca dziennik, gdzie klucz to symbol, a wartość to ilość wystąpień.
 
     symbols_dict = {}
     symbols_list = []
@@ -26,3 +27,22 @@ def symbols_count(book_text):
     return symbols_dict
 
 
+def symbols_sort(symbols_dict):
+    # Funkcja tworząca listę słowników w formacie {"char":a, "num":123}, a następnie sortująca tę listę malejąco.
+
+    list_of_symbols_dicts = []
+
+    for char in symbols_dict:
+
+        symbol_dict = {}
+        symbol_dict["char"] = char
+        symbol_dict["num"] = symbols_dict[char]
+
+        list_of_symbols_dicts.append(symbol_dict)
+
+    def sort_on(symbol_dict):
+        return symbol_dict["num"]
+
+    list_of_symbols_dicts.sort(reverse=True, key=sort_on)
+
+    return list_of_symbols_dicts
